@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../lib/three.js"></script>
+	<script type="text/javascript">
+		function init() {
+			var renderer=new THREE.WebGLRenderer();
+			renderer.setSize(400,300);
+			document.getElementsByTagName("body")[0].appendChild(renderer.domElement);
+			renderer.setClearColor(0x000000);
+
+			var scene=new THREE.Scene();
+
+			var camera=new THREE.OrthographicCamera(-20,20,15,-15,1,100);
+			camera.position.set(4,3,5);
+			camera.lookAt(new THREE.Vector3(0,0,0));
+			scene.add(camera);
+
+			var geometry=new THREE.Mesh(new THREE.TorusKnotGeometry(8,2,32,8),
+				new THREE.MeshBasicMaterial({
+					color:0xff0000,  //红色
+					wireframe:true  //线框
+				})
+			);
+			scene.add(geometry);
+
+			renderer.render(scene,camera);
+		}
+	</script>
+</head>
+<body onload="init()">
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../lib/three.js"></script>
+	<script type="text/javascript">
+		function init() {
+			var renderer=new THREE.WebGLRenderer();//创建渲染器
+			renderer.setSize(400,300);//设置渲染器尺寸
+			document.getElementsByTagName("body")[0].appendChild(renderer.domElement);//添加到body中
+			renderer.setClearColor(0x000000);//设置背景色（黑色）（用于清除画面颜色）
+
+			var scene=new THREE.Scene();//创建场景
+
+			var camera=new THREE.PerspectiveCamera(45,4/3,1,1000);//定义一个透视投影的照相机
+			camera.position.set(0,0,5);
+			scene.add(camera);//将照相机添加到场景中
+
+			//创建一个长方体，x、y、z分别为1、2、3，红色
+			var cube=new THREE.Mesh(new THREE.CubeGeometry(1,2,3),
+				new THREE.MeshBasicMaterial({
+					color:0xff0000
+				})
+			);
+			scene.add(cube);//将长方体添加到场景中
+
+			renderer.render(scene,camera);//渲染
+		}
+	</script>
+</head>
+
+<body onload="init()">
+	
+</body>
+</html>

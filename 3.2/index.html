@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../lib/three.js"></script>
+	<script type="text/javascript">
+		function init() {
+			var renderer=new THREE.WebGLRenderer();
+			renderer.setSize(400,300);
+			document.getElementsByTagName("body")[0].appendChild(renderer.domElement);
+			renderer.setClearColor(0x000000);
+
+			var scene=new THREE.Scene();
+
+			var camera=new THREE.OrthographicCamera(-2,2,1.5,-1.5,1,10);
+			camera.position.set(0,0,5);
+			camera.lookAt(new THREE.Vector3(0,0,0));
+			scene.add(camera);
+
+			var loader=new THREE.FontLoader();
+			loader.load('../lib/helvetiker_regular.typeface.json',function(font) {
+				var mesh=new THREE.Mesh(new THREE.TextGeometry('Hello', {
+					font:font,
+					size:1,
+					height:1
+				}),material);
+				scene.add(mesh);
+
+				renderer.render(scene,camera);//渲染器
+			});
+		}
+	</script>
+</head>
+<body onload="init()">
+	
+</body>
+</html>
