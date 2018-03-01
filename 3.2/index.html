@@ -12,15 +12,14 @@
 
 			var scene=new THREE.Scene();
 
-			var camera=new THREE.OrthographicCamera(-2,2,1.5,-1.5,1,10);
-			camera.position.set(0,0,5);
+			var camera=new THREE.OrthographicCamera(-4,4,1.5,-1.5,1,10);
+			camera.position.set(3,3,5);
 			camera.lookAt(new THREE.Vector3(0,0,0));
 			scene.add(camera);
 
 			var loader = new THREE.FontLoader();
 			loader.load("../lib/helvetiker_regular.typeface.json", function(font) {
 				var mesh = new THREE.Mesh(new THREE.TextGeometry("Hello", {
-					font: font,
 					size: 1,
 					height: 1
 				}));
