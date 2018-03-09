@@ -53,7 +53,7 @@
                 scene.add(ballMesh);
                 
                 // plane
-                var texture = THREE.ImageUtils.loadTexture('../img/chess.png', {}, function() {
+                var texture = THREE.ImageUtils.loadTexture('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1200703100,2034821614&fm=27&gp=0.jpg', {}, function() {
                     renderer.render(scene, camera);
                 });
                 texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
