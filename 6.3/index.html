@@ -49,7 +49,7 @@
 			ballMesh.position.y=ballRadius;
 			scene.add(ballMesh);
 
-			var texture=new THREE.TextureLoader().load("../img/chess.png",function() {
+			var texture=new THREE.ImageUtils.loadTexture("../img/chess.png",function() {
 				renderer.render(scene, camera);
 			});
 			texture.wrapS=texture.wrapT=THREE.RepeatWrapping;
